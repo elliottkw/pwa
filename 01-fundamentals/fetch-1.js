@@ -8,6 +8,6 @@ request.onreadystatechange = function(state) {
         var response = request.response;
         var responseJSON = JSON.parse(response);
 
-        console.log(responseJSON.page);
+        console.log(responseJSON);
     }
 };
