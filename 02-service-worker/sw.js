@@ -1,7 +1,11 @@
 self.addEventListener('fetch', event => {
-    if (event.request.url.includes('style.css')) {
-        event.respondWith(null);
-    } else {
-        event.respondWith(fetch(event.request));
+    if (event.request.url.includes('.jpg')) {
+        console.log(event.request.url);
+
+        // let photoRequest = fetch('img/main.jpg');
+        // let photoRequest = fetch(event.request.url');
+        let photoRequest = fetch(event.request);
+
+        event.respondWith(photoRequest);
     }
 });
