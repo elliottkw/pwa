@@ -1,14 +1,13 @@
-fetch('https://reqres.in/api/users/1')
+fetch('https://reqres.in/api/users/1000')
     .then(response => {
-        response.clone().json().then(user => {
-            console.log(user.data);
-        })
-
-        response.clone().json().then(user => {
-            console.log(user.data);
-        })
-
-        response.json().then(user => {
-            console.log(user.data);
-        })
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('No existe el usuario 1000');
+        }
+    })
+    .then(console.log)
+    .catch(error => {
+        console.log('Error en la petición');
+        console.log(error);
     });
