@@ -1,11 +1,16 @@
 self.addEventListener('fetch', event => {
-    if (event.request.url.includes('.jpg')) {
-        console.log(event.request.url);
+    if (event.request.url.includes('style.css')) {
+        let response = new Response(`
+            body {
+                background-color: red !important;
+                color: pink;
+            }
+        `, {
+            headers: {
+                'Content-Type': 'text/css'
+            }
+        });
 
-        // let photoRequest = fetch('img/main.jpg');
-        // let photoRequest = fetch(event.request.url');
-        let photoRequest = fetch(event.request);
-
-        event.respondWith(photoRequest);
+        event.respondWith(response);
     }
 });
